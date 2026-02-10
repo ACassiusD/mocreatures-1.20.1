@@ -35,9 +35,10 @@ public class MoCGUISettings extends Screen {
 
     private static final int FREQUENCY_MIN = 0;
     private static final int FREQUENCY_MAX = 16;
-    private static final int SPAWN_GROUP_MIN = 0;
-    private static final int SPAWN_GROUP_MAX_MIN = 2;  // max for minSpawn
-    private static final int SPAWN_GROUP_MAX_MAX = 6;  // max for maxSpawn
+    // Vanilla-ish spawn group sizes: 1–8
+    private static final int SPAWN_GROUP_MIN = 1;
+    private static final int SPAWN_GROUP_MAX_MIN = 8;  // upper bound for minSpawn
+    private static final int SPAWN_GROUP_MAX_MAX = 8;  // upper bound for maxSpawn
     private static final int GLOBAL_INT_MIN = 0;
     private static final int GLOBAL_INT_MAX = 100;
 
@@ -157,8 +158,8 @@ public class MoCGUISettings extends Screen {
             lines.add(new Line("--- " + displayName + " ---", true, null, null, null));
             lines.add(new Line("  canSpawn = " + data.enabled, false, null, "canSpawn", creatureName));
             lines.add(new Line("  frequency = " + data.weight + " (L/R ±1) [0-16]", false, null, "frequency", creatureName));
-            lines.add(new Line("  minSpawn = " + data.minCount + " (L/R ±1) [0-2]", false, null, "minSpawn", creatureName));
-            lines.add(new Line("  maxSpawn = " + data.maxCount + " (L/R ±1) [0-6]", false, null, "maxSpawn", creatureName));
+            lines.add(new Line("  minSpawn = " + data.minCount + " (L/R ±1) [1-8]", false, null, "minSpawn", creatureName));
+            lines.add(new Line("  maxSpawn = " + data.maxCount + " (L/R ±1) [1-8]", false, null, "maxSpawn", creatureName));
         }
     }
 

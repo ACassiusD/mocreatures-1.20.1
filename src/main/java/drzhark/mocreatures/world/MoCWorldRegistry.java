@@ -148,10 +148,17 @@ public class MoCWorldRegistry {
                 }
                 
                 // Add the spawn
+                int effectiveWeight = (int) (spawnData.weight * MoCreatures.proxy.spawnMultiplier);
                 builder.getMobSpawnSettings().getSpawner(category).add(
-                    new MobSpawnSettings.SpawnerData(entityType, (int) (spawnData.weight * MoCreatures.proxy.spawnMultiplier), spawnData.minCount, spawnData.maxCount)
+                    new MobSpawnSettings.SpawnerData(entityType, effectiveWeight, spawnData.minCount, spawnData.maxCount)
                 );
-                
+
+                // Log final spawn settings for this creature/biome (helps verify GUI changes)
+                MoCreatures.LOGGER.info(
+                    "Spawn entry for {} in biome {} -> category={}, weight={}, minGroup={}, maxGroup={}",
+                    creatureName, biomeName, category, effectiveWeight, spawnData.minCount, spawnData.maxCount
+                );
+
                 spawnsAdded++;
                 
             } catch (Exception e) {

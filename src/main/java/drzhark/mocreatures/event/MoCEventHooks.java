@@ -88,6 +88,35 @@ public class MoCEventHooks {
         } else if (dimensionIDs.contains(MoCreatures.proxy.wyvernDimension) && level.dimension().equals(MoCreatures.proxy.wyvernDimension)) {
             event.setResult(Event.Result.ALLOW);
         }
+
+        // Runtime debug: log approximate group size for wild horses
+        if (!level.isClientSide() && entity.getType() == drzhark.mocreatures.init.MoCEntities.WILDHORSE.get()) {
+            logWildHorseSpawnDebug(level, entity);
+        }
+    }
+
+    /**
+     * Debug helper: log the approximate group size and configured spawn range
+     * when a wild horse finalizes its spawn.
+     */
+    private void logWildHorseSpawnDebug(Level level, LivingEntity entity) {
+        int radius = 16;
+        int groupSize = level.getEntitiesOfClass(
+            LivingEntity.class,
+            entity.getBoundingBox().inflate(radius),
+            e -> e.getType() == drzhark.mocreatures.init.MoCEntities.WILDHORSE.get()
+        ).size();
+
+        drzhark.mocreatures.config.biome.BiomeSpawnConfig.CreatureSpawnData spawnData =
+            drzhark.mocreatures.config.biome.BiomeSpawnConfig.getSpawnData("wild_horse");
+
+        int min = spawnData != null ? spawnData.minCount : -1;
+        int max = spawnData != null ? spawnData.maxCount : -1;
+
+        MoCreatures.LOGGER.info(
+            "Wild horse spawn near ({}, {}, {}) -> approxGroupSize={}, configuredGroupRange=[{}, {}]",
+            entity.getX(), entity.getY(), entity.getZ(), groupSize, min, max
+        );
     }
 
     @SubscribeEvent

@@ -105,6 +105,44 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
         if (!this.level().isClientSide) {
             setAdult(this.random.nextInt(5) != 0);
         }
+
+        // Debug: log approximate group size shortly after a wild horse entity is created
+        if (!world.isClientSide && type == MoCEntities.WILDHORSE.get()) {
+            scheduleWildHorseSpawnDebug();
+        }
+    }
+
+    /**
+     * Debug helper: after a short delay, log where this wild horse spawned and
+     * how many other wild horses are nearby, plus the configured group range.
+     */
+    private void scheduleWildHorseSpawnDebug() {
+        drzhark.mocreatures.MoCTools.runLater(() -> {
+            if (this.isRemoved() || this.level().isClientSide) return;
+
+            int radius = 16;
+            int groupSize = this.level().getEntitiesOfClass(
+                MoCEntityHorse.class,
+                this.getBoundingBox().inflate(radius),
+                e -> e.getType() == MoCEntities.WILDHORSE.get()
+            ).size();
+
+            drzhark.mocreatures.config.biome.BiomeSpawnConfig.CreatureSpawnData spawnData =
+                drzhark.mocreatures.config.biome.BiomeSpawnConfig.getSpawnData("wild_horse");
+
+            int min = spawnData != null ? spawnData.minCount : -1;
+            int max = spawnData != null ? spawnData.maxCount : -1;
+
+            int x = (int) Math.round(this.getX());
+            int y = (int) Math.round(this.getY());
+            int z = (int) Math.round(this.getZ());
+
+            // Log coords space-separated for easy /tp copy-paste; include entity id to show distinct horses
+            MoCreatures.LOGGER.info(
+                "Wild horse (id={}) created at ({} {} {}) -> approxGroupSize={}, configuredGroupRange=[{}, {}]",
+                this.getId(), x, y, z, groupSize, min, max
+            );
+        }, 1);
     }
 
     @Override

@@ -17,13 +17,19 @@ import com.mojang.blaze3d.platform.InputConstants;
 @Mod.EventBusSubscriber(modid = MoCConstants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class MoCKeyHandler {
 
-    public static KeyMapping diveBinding = new KeyMapping("key.mocreatures.dive", 
-        KeyConflictContext.IN_GAME, 
-        InputConstants.getKey(InputConstants.KEY_Z, -1), 
+    public static KeyMapping diveBinding = new KeyMapping("key.mocreatures.dive",
+        KeyConflictContext.IN_GAME,
+        InputConstants.getKey(InputConstants.KEY_Z, -1),
+        "key.categories.mocreatures");
+
+    public static KeyMapping settingsKey = new KeyMapping("key.mocreatures.settings",
+        KeyConflictContext.IN_GAME,
+        InputConstants.getKey(InputConstants.KEY_O, -1),
         "key.categories.mocreatures");
 
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
         event.register(diveBinding);
+        event.register(settingsKey);
     }
 }

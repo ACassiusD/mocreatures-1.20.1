@@ -4,11 +4,13 @@
 package drzhark.mocreatures.client;
 
 import drzhark.mocreatures.MoCConstants;
+import drzhark.mocreatures.client.gui.MoCGUISettings;
 import drzhark.mocreatures.entity.IMoCEntity;
 import drzhark.mocreatures.network.MoCMessageHandler;
 import drzhark.mocreatures.network.message.MoCMessageEntityDive;
 import drzhark.mocreatures.network.message.MoCMessageEntityJump;
 import drzhark.mocreatures.proxy.MoCProxyClient;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
@@ -22,6 +24,14 @@ public class MoCInputHandler {
     @SubscribeEvent
     public static void onInput(TickEvent.PlayerTickEvent e) {
         if (e.phase != TickEvent.Phase.END) return;
+        // // Only run on logical client - setScreen must be called from render thread, not server thread
+        // if (!e.player.level().isClientSide()) return;
+
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.screen == null && MoCKeyHandler.settingsKey.consumeClick()) {
+            mc.execute(() -> mc.setScreen(new MoCGUISettings()));
+            return;
+        }
 
         boolean kbJump = MoCProxyClient.mc.options.keyJump.isDown();
         boolean kbDive = MoCKeyHandler.diveBinding.isDown();

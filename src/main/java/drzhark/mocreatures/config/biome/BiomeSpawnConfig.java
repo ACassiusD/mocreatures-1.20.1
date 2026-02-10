@@ -27,6 +27,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import net.minecraft.world.entity.EntityType;
 
 public class BiomeSpawnConfig {
@@ -248,7 +250,7 @@ public class BiomeSpawnConfig {
         spawnConfig.put("snail", new CreatureSpawnData(true, MoCConfig.snailSpawnWeight, 1, 2, "AMBIENT", DefaultBiomes.SNAIL, -1, -1, false));
     }
     
-    private static void saveConfig() throws IOException {
+    public static void saveConfig() throws IOException {
         JsonObject root = new JsonObject();
         
         // Add header comment
@@ -350,6 +352,14 @@ public class BiomeSpawnConfig {
             init();
         }
         return spawnConfig.get(creatureName);
+    }
+
+    /** Returns all creature names (sorted) for the settings GUI. */
+    public static Set<String> getAllCreatureNames() {
+        if (!initialized) {
+            init();
+        }
+        return new TreeSet<>(spawnConfig.keySet());
     }
     
     public static boolean testBiome(String creatureName, Holder<Biome> biome, ResourceLocation biomeName) {

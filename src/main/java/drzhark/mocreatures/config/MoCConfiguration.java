@@ -620,6 +620,15 @@ public class MoCConfiguration {
         return ImmutableSet.copyOf(this.categories.keySet());
     }
 
+    /**
+     * Clears all categories so that the next get(category, key, default, ...) will
+     * re-create properties with default values. Used to reset config to defaults.
+     */
+    public void clear() {
+        this.categories.clear();
+        this.changed = true;
+    }
+
     public String getFileName() {
         if (this.file != null) {
             String fullName = this.file.getName();

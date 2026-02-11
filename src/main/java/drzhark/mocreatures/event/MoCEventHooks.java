@@ -5,7 +5,9 @@ package drzhark.mocreatures.event;
 
 import drzhark.mocreatures.MoCConstants;
 import drzhark.mocreatures.MoCreatures;
+import drzhark.mocreatures.config.biome.BiomeSpawnConfig;
 import drzhark.mocreatures.entity.MoCEntityData;
+import drzhark.mocreatures.world.MoCSpawnRegistryCache;
 import drzhark.mocreatures.entity.tameable.IMoCTameable;
 import drzhark.mocreatures.entity.tameable.MoCPetMapData;
 import drzhark.mocreatures.MoCTools;
@@ -66,6 +68,18 @@ public class MoCEventHooks {
         MoCEntityData data = MoCreatures.entityMap.get(entityClass);
         if (data == null) return; // not a MoC entity
         
+        // Honor in-game spawn toggles (MoCreatures.json): if this creature is disabled, cancel now.
+        // Biome spawn lists are built once at world/mod load, so they can still contain this entity;
+        // checking here ensures disabling in the GUI takes effect for all subsequent spawn attempts.
+        String creatureName = MoCSpawnRegistryCache.getCreatureName(entity.getType());
+        if (creatureName != null) {
+            BiomeSpawnConfig.CreatureSpawnData spawnData = BiomeSpawnConfig.getSpawnData(creatureName);
+            if (spawnData != null && !spawnData.enabled) {
+                event.setSpawnCancelled(true);
+                return;
+            }
+        }
+
         Level level = entity.level();
         List<ResourceKey<Level>> dimensionIDs = Arrays.asList(data.getDimensions());
         
@@ -89,7 +103,7 @@ public class MoCEventHooks {
             event.setResult(Event.Result.ALLOW);
         }
 
-        // Runtime debug: log approximate group size for wild horses
+        // Runtime debug: log approximate group size for wild horses (only when spawn is allowed)
         if (!level.isClientSide() && entity.getType() == drzhark.mocreatures.init.MoCEntities.WILDHORSE.get()) {
             logWildHorseSpawnDebug(level, entity);
         }

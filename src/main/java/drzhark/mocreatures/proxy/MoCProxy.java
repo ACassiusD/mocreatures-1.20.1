@@ -757,6 +757,17 @@ public class MoCProxy {
         this.mocSettingsConfig.save();
     }
 
+    /**
+     * Resets all global settings to their built-in defaults (client-side only).
+     * Clears the in-memory config and re-reads defaults via readGlobalConfigValues(),
+     * then saves the config file.
+     */
+    public void resetGlobalConfigToDefaults() {
+        if (this.mocSettingsConfig == null) return;
+        this.mocSettingsConfig.clear();
+        this.readGlobalConfigValues();
+    }
+
     public void registerRenderers() {
     }
 

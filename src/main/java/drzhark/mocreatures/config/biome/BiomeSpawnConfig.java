@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import net.minecraft.world.entity.EntityType;
 
 public class BiomeSpawnConfig {
@@ -72,6 +73,19 @@ public class BiomeSpawnConfig {
     
     private static final Map<String, CreatureSpawnData> spawnConfig = new HashMap<>();
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    /** Spawn config keys for creatures that are tameable (MoCEntityTameableAnimal/Aquatic/Ambient). */
+    private static final Set<String> TAMEABLE_CREATURE_KEYS = Set.of(
+            "black_bear", "grizzly_bear", "polar_bear", "panda_bear",
+            "bird", "turkey", "bunny", "deer", "goat", "kitty",
+            "crocodile", "turtle", "elephant", "ostrich", "fox",
+            "komodo_dragon", "snake", "leopard", "lion", "panther", "tiger",
+            "liger", "lither", "panthger", "panthard", "leoger",
+            "mole", "raccoon", "wild_horse", "wyvern", "crab",
+            "dolphin", "shark", "manta_ray", "jellyfish", "bass", "sting_ray",
+            "anchovy", "angelfish", "angler", "clownfish", "goldfish", "hippotang", "manderin",
+            "cod", "salmon", "piranha", "fishy"
+    );
     private static File configFile;
     private static boolean initialized = false;
     
@@ -360,6 +374,16 @@ public class BiomeSpawnConfig {
             init();
         }
         return new TreeSet<>(spawnConfig.keySet());
+    }
+
+    /** Returns tameable creature names that exist in spawn config (sorted), for bulk disable/enable in GUI. */
+    public static Set<String> getTameableCreatureNames() {
+        if (!initialized) {
+            init();
+        }
+        return TAMEABLE_CREATURE_KEYS.stream()
+                .filter(spawnConfig::containsKey)
+                .collect(Collectors.toCollection(TreeSet::new));
     }
     
     public static boolean testBiome(String creatureName, Holder<Biome> biome, ResourceLocation biomeName) {

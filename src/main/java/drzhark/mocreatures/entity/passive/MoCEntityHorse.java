@@ -120,6 +120,10 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
         drzhark.mocreatures.MoCTools.runLater(() -> {
             if (this.isRemoved() || this.level().isClientSide) return;
 
+            drzhark.mocreatures.config.biome.BiomeSpawnConfig.CreatureSpawnData spawnData =
+                drzhark.mocreatures.config.biome.BiomeSpawnConfig.getSpawnData("wild_horse");
+            if (spawnData == null || !spawnData.enabled) return; // don't log when wild horse spawns are disabled
+
             int radius = 16;
             int groupSize = this.level().getEntitiesOfClass(
                 MoCEntityHorse.class,
@@ -127,11 +131,8 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
                 e -> e.getType() == MoCEntities.WILDHORSE.get()
             ).size();
 
-            drzhark.mocreatures.config.biome.BiomeSpawnConfig.CreatureSpawnData spawnData =
-                drzhark.mocreatures.config.biome.BiomeSpawnConfig.getSpawnData("wild_horse");
-
-            int min = spawnData != null ? spawnData.minCount : -1;
-            int max = spawnData != null ? spawnData.maxCount : -1;
+            int min = spawnData.minCount;
+            int max = spawnData.maxCount;
 
             int x = (int) Math.round(this.getX());
             int y = (int) Math.round(this.getY());

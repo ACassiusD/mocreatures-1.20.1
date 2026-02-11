@@ -1,0 +1,40 @@
+- Adding setting page (Press O) to modify Mo'Creatures configuration and spawn mechanics in game.
+
+- New Spawn Eggs
+    -Zebra 
+    -Black Lepord
+    -Palomino
+    -bay tovero
+
+- Added Advancements
+    - One for taming each tameable
+    - Manticore Master
+    -Breeding Advancement
+        -Black Tovero Breeder 
+        -Black Lepord Breeder
+        -Breed a Zhorse
+        -Breed a Zonky
+    -Taming Advancements
+        -Obtain a Zebra
+        -Tame a zorse 
+        -Tame a zonkey
+        -Obtain a Nightmare
+        -Obtain a unicorn
+        -Ontain a Bat Horse
+
+
+
+
+TODO
+- A special item that automatically transform mobs into adults.
+- Obtain a ghost horse
+    - Obtain a flying ghost horse
+- Obtain a skeleton horse
+    - Obtain a skeleton unicorn
+    - Obtain a skeleton pegasus
+- Obtain an undead horse
+    - Undead Unicorn,
+    - Undead Pegasus
+- Obtain a pegasus advancement - A bat horse can be transformed into a pegasus by giving it an essence of light above cloud level parent= obtain a bat horse 
+- Obtain a dark Pegasus - A pegasus can turn into a dark pegasus when given an essence of darkness above cloud level (around Y = 150) (Horse). parent = obtain a pegasus
+- A fairy horse is the rarest and most colorful horse, obtained by breeding a pegasus and a unicorn using two essences of light under normal breeding conditions (instead of pumpkins, cake, or mushroom stew). Upon birth, the unicorn and pegasus disappear, dropping any

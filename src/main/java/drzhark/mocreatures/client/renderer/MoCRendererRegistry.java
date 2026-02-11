@@ -44,6 +44,15 @@ public class MoCRendererRegistry {
             new MoCRenderButterfly(ctx, new MoCModelButterfly<>(ctx.bakeLayer(MoCModelRegistry.BUTTERFLY))));
         event.registerEntityRenderer(MoCEntities.WILDHORSE.get(), ctx ->
             new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
+        // Dedicated horse variants reuse the same renderer/model as wild horses
+        event.registerEntityRenderer(MoCEntities.ZEBRAH.get(), ctx ->
+            new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
+        event.registerEntityRenderer(MoCEntities.BLACK_LEOPARD_HORSE.get(), ctx ->
+            new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
+        event.registerEntityRenderer(MoCEntities.PALOMINO_TOVERO_HORSE.get(), ctx ->
+            new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
+        event.registerEntityRenderer(MoCEntities.BAY_TOVERO_HORSE.get(), ctx ->
+            new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
         event.registerEntityRenderer(MoCEntities.HORSE_MOB.get(), ctx -> 
             new MoCRenderHorseMob(ctx, new MoCModelHorseMob<>(ctx.bakeLayer(MoCModelRegistry.HORSE_MOB))));
         event.registerEntityRenderer(MoCEntities.BOAR.get(), ctx ->

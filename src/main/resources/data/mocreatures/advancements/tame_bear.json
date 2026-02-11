@@ -1,14 +1,14 @@
 {
-  "parent": "mocreatures:tame_bear",
+  "parent": "mocreatures:root",
   "display": {
     "icon": {
-      "item": "mocreatures:blackbear_spawn_egg"
+      "item": "mocreatures:fur"
     },
     "title": {
-      "translate": "advancements.mocreatures.tame_black_bear.title"
+      "translate": "advancements.mocreatures.tame_bear.title"
     },
     "description": {
-      "translate": "advancements.mocreatures.tame_black_bear.description"
+      "translate": "advancements.mocreatures.tame_bear.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -19,9 +19,10 @@
     "tamed": {
       "trigger": "mocreatures:tame_moc_creature",
       "conditions": {
-        "creature": "black_bear"
+        "creature": "bear"
       }
     }
   },
   "requirements": [["tamed"]]
 }
+

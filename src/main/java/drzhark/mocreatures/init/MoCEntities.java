@@ -213,6 +213,22 @@ public class MoCEntities {
     public static final RegistryObject<EntityType<MoCEntityHorse>> WILDHORSE = registerEntity("wildhorse",
             MoCEntityHorse::new, MobCategory.CREATURE, 1.3964844F, 1.6F, MoCEntityHorse::createAttributes, 9204829,
             11379712);
+    // Dedicated zebra horse entity so its spawn egg always creates a zebra variant
+    public static final RegistryObject<EntityType<MoCEntityHorse>> ZEBRAH = registerEntity("zebrah",
+            MoCEntityHorse::new, MobCategory.CREATURE, 1.3964844F, 1.6F, MoCEntityHorse::createAttributes, 0xFFFFFF,
+            0x000000);
+    // Dedicated tier-4 Black Leopard horse entity so its spawn egg always creates that variant (type 16)
+    public static final RegistryObject<EntityType<MoCEntityHorse>> BLACK_LEOPARD_HORSE = registerEntity("blackleopardhorse",
+            MoCEntityHorse::new, MobCategory.CREATURE, 1.3964844F, 1.6F, MoCEntityHorse::createAttributes, 0x111111,
+            0xC88A3A);
+    // Dedicated Palomino Tovero tier-3 horse entity so its spawn egg always creates that variant
+    public static final RegistryObject<EntityType<MoCEntityHorse>> PALOMINO_TOVERO_HORSE = registerEntity("palominotovero",
+            MoCEntityHorse::new, MobCategory.CREATURE, 1.3964844F, 1.6F, MoCEntityHorse::createAttributes, 0xE3C27D,
+            0xF5F5F5);
+    // Dedicated Bay Tovero tier-3 horse entity so its spawn egg always creates that variant
+    public static final RegistryObject<EntityType<MoCEntityHorse>> BAY_TOVERO_HORSE = registerEntity("baytovero",
+            MoCEntityHorse::new, MobCategory.CREATURE, 1.3964844F, 1.6F, MoCEntityHorse::createAttributes, 0x8B4513,
+            0xF5F5F5);
     public static final RegistryObject<EntityType<MoCEntityWyvern>> WYVERN = registerEntity("wyvern",
             MoCEntityWyvern::new, MobCategory.CREATURE, 1.45F, 1.55F, MoCEntityWyvern::registerAttributes, 11440923,
             15526339);
@@ -489,6 +505,10 @@ public class MoCEntities {
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 MoCEntityAnimal::checkAnimalSpawnRules);
         SpawnPlacements.register(WILDHORSE.get(), SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                MoCEntityAnimal::checkAnimalSpawnRules);
+        // Zebra horse uses the same spawn rules but is expected to be spawned via egg only
+        SpawnPlacements.register(ZEBRAH.get(), SpawnPlacements.Type.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 MoCEntityAnimal::checkAnimalSpawnRules);
 

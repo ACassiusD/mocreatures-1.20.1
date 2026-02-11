@@ -1,0 +1,2 @@
+{"parent":"mocreatures:obtain_zebra","display":{"icon":{"item":"mocreatures:baytovero_spawn_egg"},"title":{"translate":"advancements.mocreatures.breed_zonkey_horse.title"},"description":{"translate":"advancements.mocreatures.breed_zonkey_horse.description"},"frame":"task","show_toast":true,"announce_to_chat":true,"hidden":false},"criteria":{"bred_zonkey":{"trigger":"mocreatures:breed_moc_horse","conditions":{"horse_type":"zonky"}}},"requirements":[["bred_zonkey"]]}
+

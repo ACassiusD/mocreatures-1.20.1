@@ -3,6 +3,7 @@
  */
 package drzhark.mocreatures.entity.hunter;
 
+import drzhark.mocreatures.advancement.MoCAdvancements;
 import drzhark.mocreatures.MoCTools;
 import drzhark.mocreatures.MoCreatures;
 import drzhark.mocreatures.entity.ai.EntityAIFollowAdult;
@@ -54,6 +55,7 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.PacketDistributor;
 
 public class MoCEntityBigCat extends MoCEntityTameableAnimal {
@@ -484,6 +486,11 @@ public class MoCEntityBigCat extends MoCEntityTameableAnimal {
                 && (stack.getItem() instanceof SaddleItem || stack.getItem() == MoCItems.HORSE_SADDLE.get())) {
             if (!player.isCreative()) stack.shrink(1);
             setRideable(true);
+            if (!this.level().isClientSide() && this instanceof MoCEntityManticorePet pet && getIsTamed() && getIsRideable() && getIsChested()) {
+                if (getOwner() instanceof ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerManticoreEquipped(serverPlayer, pet);
+                }
+            }
             return InteractionResult.SUCCESS;
         }
 
@@ -508,6 +515,11 @@ public class MoCEntityBigCat extends MoCEntityTameableAnimal {
             if (!player.isCreative()) stack.shrink(1);
             setIsChested(true);
             MoCTools.playCustomSound(this, SoundEvents.CHICKEN_EGG);
+            if (!this.level().isClientSide() && this instanceof MoCEntityManticorePet pet && getIsTamed() && getIsRideable() && getIsChested()) {
+                if (getOwner() instanceof ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerManticoreEquipped(serverPlayer, pet);
+                }
+            }
             return InteractionResult.SUCCESS;
         }
 

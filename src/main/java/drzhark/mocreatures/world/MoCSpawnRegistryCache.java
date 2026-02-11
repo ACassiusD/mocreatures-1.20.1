@@ -53,6 +53,8 @@ public class MoCSpawnRegistryCache {
         ENTITIES.put("raccoon", MoCEntities.RACCOON.get());
 
         ENTITIES.put("wild_horse", MoCEntities.WILDHORSE.get());
+        // Dedicated zebra horse entity for taming / advancements
+        ENTITIES.put("zebra", MoCEntities.ZEBRAH.get());
 
         ENTITIES.put("ent", MoCEntities.ENT.get());
         ENTITIES.put("wyvern", MoCEntities.WYVERN.get());
@@ -75,6 +77,7 @@ public class MoCSpawnRegistryCache {
         ENTITIES.put("frost_manticore", MoCEntities.FROST_MANTICORE.get());
         ENTITIES.put("plain_manticore", MoCEntities.PLAIN_MANTICORE.get());
         ENTITIES.put("toxic_manticore", MoCEntities.TOXIC_MANTICORE.get());
+        ENTITIES.put("manticorepet", MoCEntities.MANTICORE_PET.get());
 
         ENTITIES.put("werewolf", MoCEntities.WEREWOLF.get());
         ENTITIES.put("wwolf", MoCEntities.WWOLF.get());

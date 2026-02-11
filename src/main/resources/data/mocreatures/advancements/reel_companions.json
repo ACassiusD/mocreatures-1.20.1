@@ -1,0 +1,101 @@
+{
+  "parent": "mocreatures:root",
+  "display": {
+    "icon": {
+      "item": "mocreatures:fishnet"
+    },
+    "title": {
+      "translate": "advancements.mocreatures.reel_companions.title"
+    },
+    "description": {
+      "translate": "advancements.mocreatures.reel_companions.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tame_anchovy": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "anchovy"
+      }
+    },
+    "tame_angelfish": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "angelfish"
+      }
+    },
+    "tame_angler": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "angler"
+      }
+    },
+    "tame_clownfish": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "clownfish"
+      }
+    },
+    "tame_goldfish": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "goldfish"
+      }
+    },
+    "tame_hippotang": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "hippotang"
+      }
+    },
+    "tame_manderin": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "manderin"
+      }
+    },
+    "tame_cod": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "cod"
+      }
+    },
+    "tame_salmon": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "salmon"
+      }
+    },
+    "tame_piranha": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "piranha"
+      }
+    },
+    "tame_fishy": {
+      "trigger": "mocreatures:tame_moc_creature",
+      "conditions": {
+        "creature": "fishy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tame_anchovy",
+      "tame_angelfish",
+      "tame_angler",
+      "tame_clownfish",
+      "tame_goldfish",
+      "tame_hippotang",
+      "tame_manderin",
+      "tame_cod",
+      "tame_salmon",
+      "tame_piranha",
+      "tame_fishy"
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "parent": "mocreatures:tame_wild_horse",
+  "display": {
+    "icon": { "item": "mocreatures:amuletfairy" },
+    "title": { "translate": "advancements.mocreatures.breed_fairy_horse.title" },
+    "description": { "translate": "advancements.mocreatures.breed_fairy_horse.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "bred": { "trigger": "mocreatures:breed_moc_horse", "conditions": { "horse_type": "fairy_horse" } }
+  },
+  "requirements": [["bred"]]
+}

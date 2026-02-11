@@ -1,0 +1,2 @@
+{"parent":"mocreatures:tame_wild_horse","display":{"icon":{"item":"mocreatures:recordshuffle"},"title":{"translate":"advancements.mocreatures.obtain_zebra.title"},"description":{"translate":"advancements.mocreatures.obtain_zebra.description"},"frame":"task","show_toast":true,"announce_to_chat":true,"hidden":false},"criteria":{"tamed_zebra":{"trigger":"mocreatures:tame_moc_creature","conditions":{"creature":"zebra"}}},"requirements":[["tamed_zebra"]]}
+

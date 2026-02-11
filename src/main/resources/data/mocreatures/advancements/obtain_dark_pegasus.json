@@ -1,0 +1,23 @@
+{
+  "parent": "mocreatures:obtain_pegasus",
+  "display": {
+    "icon": { "item": "mocreatures:essencedarkness" },
+    "title": { "translate": "advancements.mocreatures.obtain_dark_pegasus.title" },
+    "description": { "translate": "advancements.mocreatures.obtain_dark_pegasus.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_dark_pegasus": {
+      "trigger": "mocreatures:obtain_dark_pegasus"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_dark_pegasus"
+    ]
+  ]
+}
+

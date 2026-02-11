@@ -1,0 +1,23 @@
+{
+  "parent": "mocreatures:obtain_bat_horse",
+  "display": {
+    "icon": { "item": "mocreatures:essencelight" },
+    "title": { "translate": "advancements.mocreatures.obtain_pegasus.title" },
+    "description": { "translate": "advancements.mocreatures.obtain_pegasus.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_pegasus": {
+      "trigger": "mocreatures:obtain_pegasus"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_pegasus"
+    ]
+  ]
+}
+

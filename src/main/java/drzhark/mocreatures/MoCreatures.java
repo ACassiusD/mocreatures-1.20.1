@@ -100,6 +100,18 @@ public class MoCreatures {
     private void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             CriteriaTriggers.register(MoCAdvancements.TAME_MOC_CREATURE);
+            CriteriaTriggers.register(MoCAdvancements.MANTICORE_EQUIPPED);
+            CriteriaTriggers.register(MoCAdvancements.BREED_MOC_HORSE);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_UNICORN);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_BAT_HORSE);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_NIGHTMARE);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_PEGASUS);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_DARK_PEGASUS);
+            LOGGER.debug("Registered advancement trigger: mocreatures:obtain_unicorn");
+            LOGGER.debug("Registered advancement trigger: mocreatures:obtain_bat_horse");
+            LOGGER.debug("Registered advancement trigger: mocreatures:obtain_nightmare");
+            LOGGER.debug("Registered advancement trigger: mocreatures:obtain_pegasus");
+            LOGGER.debug("Registered advancement trigger: mocreatures:obtain_dark_pegasus");
         });
         // This is called after registry events - safe to build spawn lists
         event.enqueueWork(() -> {

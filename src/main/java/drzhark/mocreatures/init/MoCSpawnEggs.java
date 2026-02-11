@@ -128,6 +128,22 @@ public class MoCSpawnEggs {
     public static final RegistryObject<Item> WILDHORSE_SPAWN_EGG = registerSpawnEgg("wildhorse", 
             () -> MoCEntities.WILDHORSE.get(), 9204829, 11379712);
             
+    // Dedicated zebra horse spawn egg (always spawns zebra variant of MoCEntityHorse)
+    public static final RegistryObject<Item> ZEBRAH_SPAWN_EGG = registerSpawnEgg("zebrah",
+            () -> MoCEntities.ZEBRAH.get(), 0xFFFFFF, 0x000000);
+
+    // Dedicated tier-4 Black Leopard horse spawn egg (always spawns black_leopard variant of MoCEntityHorse)
+    public static final RegistryObject<Item> BLACK_LEOPARD_HORSE_SPAWN_EGG = registerSpawnEgg("blackleopardhorse",
+            () -> MoCEntities.BLACK_LEOPARD_HORSE.get(), 0x111111, 0xC88A3A);
+
+    // Palomino Tovero tier-3 horse spawn egg (always spawns a Palomino Tovero variant)
+    public static final RegistryObject<Item> PALOMINO_TOVERO_HORSE_SPAWN_EGG = registerSpawnEgg("palominotovero",
+            () -> MoCEntities.PALOMINO_TOVERO_HORSE.get(), 0xE3C27D, 0xF5F5F5);
+
+    // Bay Tovero tier-3 horse spawn egg (always spawns a Bay Tovero variant)
+    public static final RegistryObject<Item> BAY_TOVERO_HORSE_SPAWN_EGG = registerSpawnEgg("baytovero",
+            () -> MoCEntities.BAY_TOVERO_HORSE.get(), 0x8B4513, 0xF5F5F5);
+            
     public static final RegistryObject<Item> WYVERN_SPAWN_EGG = registerSpawnEgg("wyvern", 
             () -> MoCEntities.WYVERN.get(), 11440923, 15526339);
             

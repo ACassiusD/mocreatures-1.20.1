@@ -3,6 +3,7 @@
  */
 package drzhark.mocreatures.entity.passive;
 
+import drzhark.mocreatures.advancement.MoCAdvancements;
 import drzhark.mocreatures.MoCTools;
 import drzhark.mocreatures.MoCreatures;
 import drzhark.mocreatures.entity.ai.EntityAIFollowAdult;
@@ -31,6 +32,7 @@ import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Donkey;
 import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.nbt.CompoundTag;
@@ -103,7 +105,13 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
         this.setMaxUpStep(1.0F);
 
         if (!this.level().isClientSide) {
+            // Default: mostly adults, some foals
             setAdult(this.random.nextInt(5) != 0);
+
+            // Dedicated tier-4 Black Leopard horse: always spawn as an adult
+            if (type == drzhark.mocreatures.init.MoCEntities.BLACK_LEOPARD_HORSE.get()) {
+                setAdult(true);
+            }
         }
 
         // Debug: log approximate group size shortly after a wild horse entity is created
@@ -1368,6 +1376,9 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
             if (this.getTypeMoC() == 61) {
                 //nightmare
                 transform(38);
+                if (player instanceof ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerObtainNightmare(serverPlayer);
+                }
             }
             drinkingHorse();
             return InteractionResult.SUCCESS;
@@ -1385,11 +1396,17 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
             }
             if (this.getTypeMoC() == 61) {
                 transform(32); //horsezorse to bat horse
+                if (player instanceof ServerPlayer serverPlayer) {
+                    drzhark.mocreatures.advancement.MoCAdvancements.triggerObtainBatHorse(serverPlayer);
+                }
             }
             if (this.getTypeMoC() == 39) // pegasus to darkpegasus
             {
-                //darkpegasus
+                // dark pegasus
                 transform(40);
+                if (player instanceof ServerPlayer serverPlayer) {
+                    drzhark.mocreatures.advancement.MoCAdvancements.triggerObtainDarkPegasus(serverPlayer);
+                }
             }
             drinkingHorse();
             return InteractionResult.SUCCESS;
@@ -1411,11 +1428,17 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
             if (this.isNightmare()) {
                 // unicorn
                 transform(36);
+                if (player instanceof ServerPlayer serverPlayer) {
+                    drzhark.mocreatures.advancement.MoCAdvancements.triggerObtainUnicorn(serverPlayer);
+                }
             }
             if (this.getTypeMoC() == 32 && this.getY() > 128D) // bathorse to pegasus
             {
                 // pegasus
                 transform(39);
+                if (player instanceof ServerPlayer serverPlayer) {
+                    drzhark.mocreatures.advancement.MoCAdvancements.triggerObtainPegasus(serverPlayer);
+                }
             }
             // to return undead horses to pristine conditions
             if (this.isUndead() && this.getIsAdult() && !this.level().isClientSide) {
@@ -2113,6 +2136,9 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
                 }
                 if (entityplayer != null) MoCTools.tameWithName(entityplayer, baby);
                 baby.setTypeMoC(l);
+                if (entityplayer instanceof ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerBreedHorse(serverPlayer, l);
+                }
                 break;
             }
         }
@@ -2210,6 +2236,26 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
     public void selectType() {
         checkSpawningBiome();
         if (getTypeMoC() == 0) {
+            // Dedicated zebra entity: always force zebra variant
+            if (this.getType() == MoCEntities.ZEBRAH.get()) {
+                setTypeMoC(60); // zebra
+                return;
+            }
+            // Dedicated black leopard tier-4 horse entity: always force black_leopard variant (type 16)
+            if (this.getType() == MoCEntities.BLACK_LEOPARD_HORSE.get()) {
+                setTypeMoC(16); // black leopard tier-4 horse
+                return;
+            }
+            // Dedicated Palomino Tovero tier-3 horse entity: always force a bright pinto-like variant (type 12)
+            if (this.getType() == MoCEntities.PALOMINO_TOVERO_HORSE.get()) {
+                setTypeMoC(12); // maps to horsebrightpinto.png
+                return;
+            }
+            // Dedicated Bay Tovero tier-3 horse entity: always force the pinto-like variant (type 11)
+            if (this.getType() == MoCEntities.BAY_TOVERO_HORSE.get()) {
+                setTypeMoC(11); // maps to horsepinto.png
+                return;
+            }
             if (this.random.nextInt(5) == 0) setAdult(false);
             int j = this.random.nextInt(100);
             if (j <= (33)) setTypeMoC(6);

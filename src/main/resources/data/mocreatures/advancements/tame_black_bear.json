@@ -2,7 +2,7 @@
   "parent": "mocreatures:root",
   "display": {
     "icon": {
-      "item": "minecraft:bone"
+      "item": "mocreatures:blackbear_spawn_egg"
     },
     "title": {
       "translate": "advancements.mocreatures.tame_black_bear.title"

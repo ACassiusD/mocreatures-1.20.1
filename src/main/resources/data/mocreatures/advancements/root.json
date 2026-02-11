@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:bone"
+      "item": "mocreatures:petamulet"
     },
     "title": {
       "translate": "advancements.mocreatures.root.title"

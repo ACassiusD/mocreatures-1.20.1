@@ -1,0 +1,18 @@
+{
+  "parent": "mocreatures:obtain_ghost_horse",
+  "display": {
+    "icon": { "item": "mocreatures:amuletghostfull" },
+    "title": { "translate": "advancements.mocreatures.obtain_flying_ghost_horse.title" },
+    "description": { "translate": "advancements.mocreatures.obtain_flying_ghost_horse.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtained": {
+      "trigger": "mocreatures:obtain_flying_ghost_horse"
+    }
+  },
+  "requirements": [["obtained"]]
+}

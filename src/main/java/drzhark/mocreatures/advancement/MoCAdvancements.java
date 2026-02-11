@@ -20,6 +20,8 @@ public final class MoCAdvancements {
     public static final MoCObtainNightmareTrigger OBTAIN_NIGHTMARE = new MoCObtainNightmareTrigger();
     public static final MoCObtainPegasusTrigger OBTAIN_PEGASUS = new MoCObtainPegasusTrigger();
     public static final MoCObtainDarkPegasusTrigger OBTAIN_DARK_PEGASUS = new MoCObtainDarkPegasusTrigger();
+    public static final MoCObtainGhostHorseTrigger OBTAIN_GHOST_HORSE = new MoCObtainGhostHorseTrigger();
+    public static final MoCObtainFlyingGhostHorseTrigger OBTAIN_FLYING_GHOST_HORSE = new MoCObtainFlyingGhostHorseTrigger();
 
     private MoCAdvancements() {}
 
@@ -89,6 +91,22 @@ public final class MoCAdvancements {
     public static void triggerObtainDarkPegasus(ServerPlayer player) {
         if (player == null) return;
         OBTAIN_DARK_PEGASUS.trigger(player);
+    }
+
+    /**
+     * Call when a tamed rare or tier 4 horse dies and is replaced by a ghost horse (e.g. from MoCEntityHorse die).
+     */
+    public static void triggerObtainGhostHorse(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_GHOST_HORSE.trigger(player);
+    }
+
+    /**
+     * Call when a tamed flyer (Pegasus, Dark Pegasus, Bat Horse, Fairy) dies and is replaced by a flying ghost horse (e.g. from MoCEntityHorse die).
+     */
+    public static void triggerObtainFlyingGhostHorse(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_FLYING_GHOST_HORSE.trigger(player);
     }
 
 }

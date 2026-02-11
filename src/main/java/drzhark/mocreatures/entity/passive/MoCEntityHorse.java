@@ -1891,6 +1891,13 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
                 int l = 22;
                 if (this.isFlyer()) l = 21;
                 entityhorse1.setTypeMoC(l);
+
+                if (player != null && player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerObtainGhostHorse(serverPlayer);
+                    if (l == 21) {
+                        MoCAdvancements.triggerObtainFlyingGhostHorse(serverPlayer);
+                    }
+                }
             }
         }
     }

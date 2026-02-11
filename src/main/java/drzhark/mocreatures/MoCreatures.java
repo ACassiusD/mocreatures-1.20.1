@@ -8,6 +8,7 @@ import drzhark.mocreatures.compat.CompatHandler;
 import drzhark.mocreatures.config.biome.BiomeSpawnConfig;
 import drzhark.mocreatures.entity.MoCEntityData;
 import drzhark.mocreatures.entity.tameable.MoCPetMapData;
+import drzhark.mocreatures.advancement.MoCAdvancements;
 import drzhark.mocreatures.event.MoCEventHooks;
 import drzhark.mocreatures.init.MoCBlocks;
 import drzhark.mocreatures.init.MoCCreativeTabs;
@@ -25,6 +26,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.ChatFormatting;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.Level;
@@ -96,6 +98,9 @@ public class MoCreatures {
     }
     
     private void setup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            CriteriaTriggers.register(MoCAdvancements.TAME_MOC_CREATURE);
+        });
         // This is called after registry events - safe to build spawn lists
         event.enqueueWork(() -> {
             LOGGER.info("Building Mo'Creatures world gen spawn lists");

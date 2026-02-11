@@ -3,6 +3,7 @@
  */
 package drzhark.mocreatures;
 
+import drzhark.mocreatures.advancement.MoCAdvancements;
 import drzhark.mocreatures.entity.IMoCEntity;
 import drzhark.mocreatures.entity.MoCEntityAnimal;
 import drzhark.mocreatures.entity.ambient.MoCEntityMaggot;
@@ -785,6 +786,10 @@ public class MoCTools {
         }
 
         storedCreature.setTamed(true);
+
+        if (!ep.level().isClientSide() && ep instanceof ServerPlayer serverPlayer) {
+            MoCAdvancements.triggerTame(serverPlayer, (Entity) storedCreature);
+        }
 
         if (MoCreatures.instance.mapData != null && storedCreature.getOwnerPetId() == -1) {
             MoCreatures.instance.mapData.updateOwnerPet(storedCreature);

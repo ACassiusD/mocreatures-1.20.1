@@ -1,0 +1,71 @@
+{
+  "parent": "mocreatures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:bone"
+    },
+    "title": {
+      "translate": "advancements.mocreatures.gotta_catch_em_all.title"
+    },
+    "description": {
+      "translate": "advancements.mocreatures.gotta_catch_em_all.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tame_black_bear": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "black_bear"}},
+    "tame_grizzly_bear": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "grizzly_bear"}},
+    "tame_polar_bear": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "polar_bear"}},
+    "tame_panda_bear": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "panda_bear"}},
+    "tame_bird": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "bird"}},
+    "tame_turkey": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "turkey"}},
+    "tame_bunny": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "bunny"}},
+    "tame_deer": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "deer"}},
+    "tame_goat": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "goat"}},
+    "tame_kitty": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "kitty"}},
+    "tame_crocodile": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "crocodile"}},
+    "tame_turtle": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "turtle"}},
+    "tame_elephant": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "elephant"}},
+    "tame_ostrich": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "ostrich"}},
+    "tame_fox": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "fox"}},
+    "tame_komodo_dragon": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "komodo_dragon"}},
+    "tame_snake": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "snake"}},
+    "tame_leopard": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "leopard"}},
+    "tame_lion": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "lion"}},
+    "tame_panther": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "panther"}},
+    "tame_tiger": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "tiger"}},
+    "tame_liger": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "liger"}},
+    "tame_lither": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "lither"}},
+    "tame_panthger": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "panthger"}},
+    "tame_panthard": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "panthard"}},
+    "tame_leoger": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "leoger"}},
+    "tame_mole": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "mole"}},
+    "tame_raccoon": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "raccoon"}},
+    "tame_wild_horse": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "wild_horse"}},
+    "tame_wyvern": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "wyvern"}},
+    "tame_crab": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "crab"}},
+    "tame_dolphin": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "dolphin"}},
+    "tame_shark": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "shark"}},
+    "tame_manta_ray": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "manta_ray"}},
+    "tame_jellyfish": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "jellyfish"}},
+    "tame_bass": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "bass"}},
+    "tame_sting_ray": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "sting_ray"}},
+    "tame_anchovy": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "anchovy"}},
+    "tame_angelfish": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "angelfish"}},
+    "tame_angler": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "angler"}},
+    "tame_clownfish": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "clownfish"}},
+    "tame_goldfish": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "goldfish"}},
+    "tame_hippotang": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "hippotang"}},
+    "tame_manderin": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "manderin"}},
+    "tame_cod": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "cod"}},
+    "tame_salmon": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "salmon"}},
+    "tame_piranha": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "piranha"}},
+    "tame_fishy": {"trigger": "mocreatures:tame_moc_creature", "conditions": {"creature": "fishy"}}
+  },
+  "requirements": [
+    ["tame_black_bear", "tame_grizzly_bear", "tame_polar_bear", "tame_panda_bear", "tame_bird", "tame_turkey", "tame_bunny", "tame_deer", "tame_goat", "tame_kitty", "tame_crocodile", "tame_turtle", "tame_elephant", "tame_ostrich", "tame_fox", "tame_komodo_dragon", "tame_snake", "tame_leopard", "tame_lion", "tame_panther", "tame_tiger", "tame_liger", "tame_lither", "tame_panthger", "tame_panthard", "tame_leoger", "tame_mole", "tame_raccoon", "tame_wild_horse", "tame_wyvern", "tame_crab", "tame_dolphin", "tame_shark", "tame_manta_ray", "tame_jellyfish", "tame_bass", "tame_sting_ray", "tame_anchovy", "tame_angelfish", "tame_angler", "tame_clownfish", "tame_goldfish", "tame_hippotang", "tame_manderin", "tame_cod", "tame_salmon", "tame_piranha", "tame_fishy"]
+  ]
+}

@@ -226,6 +226,8 @@
     "item.mocreatures.essencefire": "Essence of Fire",
     "item.mocreatures.essencelight": "Essence of Light",
     "item.mocreatures.essenceundead": "Essence of Undead",
+    "item.mocreatures.essenceofgrowth": "Essence of Growth",
+    "item.mocreatures.essenceofgrowth.tooltip": "Use on a baby Mo' Creatures animal to instantly grow it to adulthood",
     "item.mocreatures.firestonechunk": "Firestone Chunk",
     "item.mocreatures.fishnet": "Fishing Net",
     "item.mocreatures.fishnetfull": "Fishing Net",

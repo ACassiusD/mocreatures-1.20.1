@@ -12,6 +12,7 @@ import drzhark.mocreatures.entity.item.MoCEntityKittyBed;
 import drzhark.mocreatures.entity.item.MoCEntityLitterBox;
 import drzhark.mocreatures.entity.passive.MoCEntityHorse;
 import drzhark.mocreatures.entity.tameable.IMoCTameable;
+import drzhark.mocreatures.init.MoCItems;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -35,6 +36,8 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -190,6 +193,22 @@ public abstract class MoCEntityAnimal extends Animal implements IMoCEntity {
         if (getMoCAge() >= getMoCMaxAge()) {
             setAdult(true);
         }
+    }
+
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (!stack.isEmpty() && stack.is(MoCItems.ESSENCE_OF_GROWTH.get()) && !getIsAdult()) {
+            if (!this.level().isClientSide) {
+                setMoCAge(getMoCMaxAge());
+                setAdult(true);
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                }
+            }
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        }
+        return super.mobInteract(player, hand);
     }
 
     @Override

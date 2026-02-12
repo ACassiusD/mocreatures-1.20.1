@@ -23,6 +23,7 @@ public class MoCItems {
 
     // Misc
     public static final RegistryObject<Item> HORSE_GUIDE = ITEMS.register("horseguide", () -> new ItemHorseGuide(new Properties().stacksTo(1)));
+    public static final RegistryObject<Item> TAMERS_NOTEBOOK = ITEMS.register("tamersnotebook", () -> new MoCItemTamersNotebook(new Properties().stacksTo(1)));
     public static final RegistryObject<Item> ESSENCE_OF_GROWTH = ITEMS.register("essenceofgrowth", () -> new MoCItemEssenceOfGrowth(new Properties().stacksTo(16)));
     public static final RegistryObject<Item> RECORD_SHUFFLE = ITEMS.register("recordshuffle", () -> new MoCItemRecord(15, MoCSoundEvents.ITEM_RECORD_SHUFFLING::get, new Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> HORSE_SADDLE = ITEMS.register("horsesaddle", () -> new MoCItemHorseSaddle(new Properties()));

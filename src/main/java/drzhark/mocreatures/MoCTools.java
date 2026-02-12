@@ -11,6 +11,7 @@ import drzhark.mocreatures.entity.hostile.MoCEntityOgre;
 import drzhark.mocreatures.entity.hostile.MoCEntitySilverSkeleton;
 import drzhark.mocreatures.entity.inventory.MoCAnimalChest;
 import drzhark.mocreatures.entity.item.MoCEntityThrowableRock;
+import drzhark.mocreatures.entity.aquatic.MoCEntityDolphin;
 import drzhark.mocreatures.entity.passive.MoCEntityHorse;
 import drzhark.mocreatures.entity.tameable.IMoCTameable;
 import drzhark.mocreatures.entity.tameable.MoCEntityTameableAnimal;
@@ -789,6 +790,9 @@ public class MoCTools {
 
         if (!ep.level().isClientSide() && ep instanceof ServerPlayer serverPlayer) {
             MoCAdvancements.triggerTame(serverPlayer, (Entity) storedCreature);
+            if (storedCreature instanceof MoCEntityDolphin dolphin) {
+                MoCAdvancements.triggerTameDolphinType(serverPlayer, dolphin.getTypeMoC());
+            }
         }
 
         if (MoCreatures.instance.mapData != null && storedCreature.getOwnerPetId() == -1) {

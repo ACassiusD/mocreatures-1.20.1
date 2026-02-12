@@ -1369,15 +1369,23 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
             if (this.getTypeMoC() == 39 || this.getTypeMoC() == 32 || this.getTypeMoC() == 40) {
                 // transformType = 25; //undead pegasus
                 transform(25);
-
+                if (player instanceof ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerObtainUndeadPegasus(serverPlayer);
+                }
             } else if (this.getTypeMoC() == 36 || (this.getTypeMoC() > 47 && this.getTypeMoC() < 60)) // unicorn or fairies
             {
                 // transformType = 24; //undead unicorn
                 transform(24);
+                if (player instanceof ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerObtainUndeadUnicorn(serverPlayer);
+                }
             } else if (this.getTypeMoC() < 21 || this.getTypeMoC() == 60 || this.getTypeMoC() == 61) // regular horses or zebras
             {
                 // transformType = 23; //undead
                 transform(23);
+                if (player instanceof ServerPlayer serverPlayer) {
+                    MoCAdvancements.triggerObtainUndeadHorse(serverPlayer);
+                }
             }
             drinkingHorse();
             return InteractionResult.SUCCESS;
@@ -2038,7 +2046,18 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
         if (isUndead() && (this.getTypeMoC() < 26) && getIsAdult() && (this.random.nextInt(20) == 0)) {
             if (!this.level().isClientSide()) {
                 if (this.random.nextInt(16) == 0) setMoCAge(getMoCAge() + 1);
-                if (getMoCAge() >= 399) setTypeMoC(this.getTypeMoC() + 3);
+                if (getMoCAge() >= 399) {
+                    setTypeMoC(this.getTypeMoC() + 3);
+                    if (this.level() instanceof ServerLevel serverLevel && serverLevel.getServer() != null) {
+                        ServerPlayer owner = serverLevel.getServer().getPlayerList().getPlayer(this.getOwnerId());
+                        if (owner != null) {
+                            int type = getTypeMoC();
+                            if (type == 26) MoCAdvancements.triggerObtainSkeletonHorse(owner);
+                            else if (type == 27) MoCAdvancements.triggerObtainSkeletonUnicorn(owner);
+                            else if (type == 28) MoCAdvancements.triggerObtainSkeletonPegasus(owner);
+                        }
+                    }
+                }
             } else UndeadFX();
         }
 

@@ -23,6 +23,13 @@ public final class MoCAdvancements {
     public static final MoCObtainGhostHorseTrigger OBTAIN_GHOST_HORSE = new MoCObtainGhostHorseTrigger();
     public static final MoCObtainFlyingGhostHorseTrigger OBTAIN_FLYING_GHOST_HORSE = new MoCObtainFlyingGhostHorseTrigger();
     public static final MoCObtainFairyColorTrigger OBTAIN_FAIRY_COLOR = new MoCObtainFairyColorTrigger();
+    public static final MoCObtainUndeadHorseTrigger OBTAIN_UNDEAD_HORSE = new MoCObtainUndeadHorseTrigger();
+    public static final MoCObtainUndeadUnicornTrigger OBTAIN_UNDEAD_UNICORN = new MoCObtainUndeadUnicornTrigger();
+    public static final MoCObtainUndeadPegasusTrigger OBTAIN_UNDEAD_PEGASUS = new MoCObtainUndeadPegasusTrigger();
+    public static final MoCObtainSkeletonHorseTrigger OBTAIN_SKELETON_HORSE = new MoCObtainSkeletonHorseTrigger();
+    public static final MoCObtainSkeletonUnicornTrigger OBTAIN_SKELETON_UNICORN = new MoCObtainSkeletonUnicornTrigger();
+    public static final MoCObtainSkeletonPegasusTrigger OBTAIN_SKELETON_PEGASUS = new MoCObtainSkeletonPegasusTrigger();
+    public static final MoCTameDolphinTypeTrigger TAME_DOLPHIN_TYPE = new MoCTameDolphinTypeTrigger();
 
     private MoCAdvancements() {}
 
@@ -117,6 +124,64 @@ public final class MoCAdvancements {
     public static void triggerObtainFairyColor(ServerPlayer player, int fairyTypeMoC) {
         if (player == null) return;
         OBTAIN_FAIRY_COLOR.trigger(player, fairyTypeMoC);
+    }
+
+    /**
+     * Call when a player successfully uses an Essence of Undead on a tamed horse (regular/cross-breed),
+     * transforming it into an undead horse (e.g. from MoCEntityHorse mobInteract).
+     */
+    public static void triggerObtainUndeadHorse(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_UNDEAD_HORSE.trigger(player);
+    }
+
+    /**
+     * Call when a player successfully uses an Essence of Undead on a Unicorn, transforming it into an undead unicorn.
+     */
+    public static void triggerObtainUndeadUnicorn(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_UNDEAD_UNICORN.trigger(player);
+    }
+
+    /**
+     * Call when a player successfully uses an Essence of Undead on a Bat Horse, Pegasus, or Dark Pegasus,
+     * transforming it into an undead pegasus.
+     */
+    public static void triggerObtainUndeadPegasus(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_UNDEAD_PEGASUS.trigger(player);
+    }
+
+    /**
+     * Call when an undead horse decays and transforms into a skeleton horse (e.g. from MoCEntityHorse aiStep).
+     */
+    public static void triggerObtainSkeletonHorse(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_SKELETON_HORSE.trigger(player);
+    }
+
+    /**
+     * Call when an undead unicorn decays and transforms into a skeleton unicorn.
+     */
+    public static void triggerObtainSkeletonUnicorn(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_SKELETON_UNICORN.trigger(player);
+    }
+
+    /**
+     * Call when an undead pegasus decays and transforms into a skeleton pegasus.
+     */
+    public static void triggerObtainSkeletonPegasus(ServerPlayer player) {
+        if (player == null) return;
+        OBTAIN_SKELETON_PEGASUS.trigger(player);
+    }
+
+    /**
+     * Call when a player tames a dolphin of a specific type (pink = 5, albino = 6). Used for subtype advancements.
+     */
+    public static void triggerTameDolphinType(ServerPlayer player, int dolphinTypeMoC) {
+        if (player == null) return;
+        TAME_DOLPHIN_TYPE.trigger(player, dolphinTypeMoC);
     }
 
 }

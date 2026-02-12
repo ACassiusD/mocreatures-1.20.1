@@ -110,6 +110,13 @@ public class MoCreatures {
             CriteriaTriggers.register(MoCAdvancements.OBTAIN_GHOST_HORSE);
             CriteriaTriggers.register(MoCAdvancements.OBTAIN_FLYING_GHOST_HORSE);
             CriteriaTriggers.register(MoCAdvancements.OBTAIN_FAIRY_COLOR);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_UNDEAD_HORSE);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_UNDEAD_UNICORN);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_UNDEAD_PEGASUS);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_SKELETON_HORSE);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_SKELETON_UNICORN);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_SKELETON_PEGASUS);
+            CriteriaTriggers.register(MoCAdvancements.TAME_DOLPHIN_TYPE);
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_unicorn");
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_bat_horse");
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_nightmare");

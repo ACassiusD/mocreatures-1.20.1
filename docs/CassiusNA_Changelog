@@ -1,40 +1,51 @@
-- Adding setting page (Press O) to modify Mo'Creatures configuration and spawn mechanics in game.
+- New Features 
+    - Config setting page (Accessable with O key) to modify Mo'Creatures configuration and spawn mechanics.
+
+- Bug Fixes
+    - Fixed a bug where users could not interact tamed manticore chests
 
 - New Spawn Eggs
     -Zebra 
     -Black Lepord
     -Palomino
-    -bay tovero
+    -Bay Tovero
+    -Fairy Horse
+
+- New Items 
+    -Essence of growth
+    -Tamer's Notebook (craft: Book + Paper + Medallion)
+        -Shows your tamed creatures, their names, and their coordinates
+        -Click a row to copy that creature's coordinates to the clipboard
 
 - Added Advancements
     - One for taming each tameable
     - Manticore Master
     -Breeding Advancement
-        -Black Tovero Breeder 
-        -Black Lepord Breeder
+        -Breed a Black Tovero Breeder 
+        -Breed a Black Lepord Breeder
         -Breed a Zhorse
         -Breed a Zonky
+        -Breed a Fairy Horse
     -Taming Advancements
         -Obtain a Zebra
-        -Tame a zorse 
-        -Tame a zonkey
         -Obtain a Nightmare
         -Obtain a unicorn
         -Ontain a Bat Horse
+        -Obtain a Ghost Horse
+        -Obtain a Flying Ghost Horse
+        -Obtain a Pegasus
+        -Obtain a Dark Pegasus
+        -Obtain Fairy Horse Colors + Obtain each color (Purple, Pink, Red, Orange, Yellow, Lime Green, Green, Cyan, Blue, Dark Blue, Black)
+        -Obtain an undead horse
+        -Obtain an undead Unicorn
+        -Obtain an undead Pegasus
+        -Obtain a skeleton horse
+        -Obtain a skeleton unicorn
+        -Obtain a skeleton pegasus
+        -Obtain a Pink Dolphin
+        -Obtain an Albino Dolphin
 
 
-
-
-TODO
-- A special item that automatically transform mobs into adults.
-- Obtain a ghost horse
-    - Obtain a flying ghost horse
-- Obtain a skeleton horse
-    - Obtain a skeleton unicorn
-    - Obtain a skeleton pegasus
-- Obtain an undead horse
-    - Undead Unicorn,
-    - Undead Pegasus
-- Obtain a pegasus advancement - A bat horse can be transformed into a pegasus by giving it an essence of light above cloud level parent= obtain a bat horse 
-- Obtain a dark Pegasus - A pegasus can turn into a dark pegasus when given an essence of darkness above cloud level (around Y = 150) (Horse). parent = obtain a pegasus
-- A fairy horse is the rarest and most colorful horse, obtained by breeding a pegasus and a unicorn using two essences of light under normal breeding conditions (instead of pumpkins, cake, or mushroom stew). Upon birth, the unicorn and pegasus disappear, dropping any
+== TODO ANOTHER DAY ==
+- Add horse breeding image
+    -https://static.wikia.nocookie.net/mocreatures_gamepedia_en/images/4/40/Horse_Chart.jpg/revision/latest/scale-to-width-down/1000?cb=20170501193313

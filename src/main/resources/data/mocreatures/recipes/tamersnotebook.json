@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "mocreatures:tamersnotebook",
+  "ingredients": [
+    { "item": "minecraft:book" },
+    { "item": "minecraft:paper" },
+    { "item": "mocreatures:medallion" }
+  ],
+  "result": {
+    "item": "mocreatures:tamersnotebook"
+  }
+}

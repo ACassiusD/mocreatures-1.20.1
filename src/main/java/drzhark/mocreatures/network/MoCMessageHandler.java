@@ -108,5 +108,11 @@ public class MoCMessageHandler {
             .decoder(MoCMessageVanish::new)
             .consumerMainThread((message, context) -> MoCMessageVanish.onMessage(message, context))
             .add();
+
+        INSTANCE.messageBuilder(MoCMessageTamersNotebook.class, id++)
+            .encoder(MoCMessageTamersNotebook::encode)
+            .decoder(MoCMessageTamersNotebook::new)
+            .consumerMainThread((message, context) -> MoCMessageTamersNotebook.onMessage(message, context))
+            .add();
     }
 }

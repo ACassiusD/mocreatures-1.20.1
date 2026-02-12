@@ -53,6 +53,8 @@ public class MoCRendererRegistry {
             new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
         event.registerEntityRenderer(MoCEntities.BAY_TOVERO_HORSE.get(), ctx ->
             new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
+        event.registerEntityRenderer(MoCEntities.FAIRY_HORSE.get(), ctx ->
+            new MoCRenderHorse(ctx, new MoCModelHorse<>(ctx.bakeLayer(MoCModelRegistry.HORSE))));
         event.registerEntityRenderer(MoCEntities.HORSE_MOB.get(), ctx -> 
             new MoCRenderHorseMob(ctx, new MoCModelHorseMob<>(ctx.bakeLayer(MoCModelRegistry.HORSE_MOB))));
         event.registerEntityRenderer(MoCEntities.BOAR.get(), ctx ->

@@ -1,5 +1,5 @@
 {
-  "parent": "mocreatures:tame_wild_horse",
+  "parent": "mocreatures:obtain_unicorn",
   "display": {
     "icon": { "item": "mocreatures:amuletfairy" },
     "title": { "translate": "advancements.mocreatures.breed_fairy_horse.title" },

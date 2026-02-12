@@ -229,6 +229,10 @@ public class MoCEntities {
     public static final RegistryObject<EntityType<MoCEntityHorse>> BAY_TOVERO_HORSE = registerEntity("baytovero",
             MoCEntityHorse::new, MobCategory.CREATURE, 1.3964844F, 1.6F, MoCEntityHorse::createAttributes, 0x8B4513,
             0xF5F5F5);
+    // Dedicated fairy horse entity (white fairy, type 50) for spawn egg – for testing and creative
+    public static final RegistryObject<EntityType<MoCEntityHorse>> FAIRY_HORSE = registerEntity("fairyhorse",
+            MoCEntityHorse::new, MobCategory.CREATURE, 1.3964844F, 1.6F, MoCEntityHorse::createAttributes, 0xF5F5F5,
+            0xE8E8E8);
     public static final RegistryObject<EntityType<MoCEntityWyvern>> WYVERN = registerEntity("wyvern",
             MoCEntityWyvern::new, MobCategory.CREATURE, 1.45F, 1.55F, MoCEntityWyvern::registerAttributes, 11440923,
             15526339);

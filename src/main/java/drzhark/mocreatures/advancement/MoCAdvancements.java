@@ -22,6 +22,7 @@ public final class MoCAdvancements {
     public static final MoCObtainDarkPegasusTrigger OBTAIN_DARK_PEGASUS = new MoCObtainDarkPegasusTrigger();
     public static final MoCObtainGhostHorseTrigger OBTAIN_GHOST_HORSE = new MoCObtainGhostHorseTrigger();
     public static final MoCObtainFlyingGhostHorseTrigger OBTAIN_FLYING_GHOST_HORSE = new MoCObtainFlyingGhostHorseTrigger();
+    public static final MoCObtainFairyColorTrigger OBTAIN_FAIRY_COLOR = new MoCObtainFairyColorTrigger();
 
     private MoCAdvancements() {}
 
@@ -107,6 +108,15 @@ public final class MoCAdvancements {
     public static void triggerObtainFlyingGhostHorse(ServerPlayer player) {
         if (player == null) return;
         OBTAIN_FLYING_GHOST_HORSE.trigger(player);
+    }
+
+    /**
+     * Call when a player obtains a fairy horse of a given color (breeding or dyeing white fairy).
+     * fairyTypeMoC must be 48-59.
+     */
+    public static void triggerObtainFairyColor(ServerPlayer player, int fairyTypeMoC) {
+        if (player == null) return;
+        OBTAIN_FAIRY_COLOR.trigger(player, fairyTypeMoC);
     }
 
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "mocreatures:obtain_ghost_horse",
+  "parent": "mocreatures:obtain_pegasus",
   "display": {
     "icon": { "item": "mocreatures:amuletghostfull" },
     "title": { "translate": "advancements.mocreatures.obtain_flying_ghost_horse.title" },

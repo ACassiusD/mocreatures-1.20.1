@@ -49,6 +49,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
@@ -61,6 +65,7 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.network.PacketDistributor;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
@@ -152,6 +157,21 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
                 this.getId(), x, y, z, groupSize, min, max
             );
         }, 1);
+    }
+
+    @Override
+    @Nullable
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
+        SpawnGroupData data = super.finalizeSpawn(world, difficulty, reason, spawnData, dataTag);
+        if (this.getType() == MoCEntities.FAIRY_HORSE.get() && reason == MobSpawnType.SPAWN_EGG && !this.level().isClientSide() && this.level() instanceof ServerLevel serverLevel) {
+            Player player = serverLevel.getNearestPlayer(this, 10.0D);
+            if (player != null) {
+                this.setOwnerId(player.getUUID());
+                this.setTamed(true);
+                MoCTools.tameWithName(player, this);
+            }
+        }
+        return data;
     }
 
     @Override
@@ -1474,24 +1494,30 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
 
         if (!stack.isEmpty() && (stack.getItem() instanceof DyeItem) && this.getTypeMoC() == 50) {
             int colorInt = ((DyeItem)stack.getItem()).getDyeColor().getId();
+            int newFairyType = 0;
             switch (colorInt) {
                 case 1: //orange
                     transform(59);
+                    newFairyType = 59;
                     break;
                 case 2: //magenta TODO
                     //transform(46);
                     break;
                 case 3: //light blue
                     transform(51);
+                    newFairyType = 51;
                     break;
                 case 4: //yellow
                     transform(48);
+                    newFairyType = 48;
                     break;
                 case 5: //light green
                     transform(53);
+                    newFairyType = 53;
                     break;
                 case 6: //pink
                     transform(52);
+                    newFairyType = 52;
                     break;
                 case 7: //gray TODO
                     //transform(50);
@@ -1501,27 +1527,36 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
                     break;
                 case 9: //cyan
                     transform(57);
+                    newFairyType = 57;
                     break;
                 case 10: //purple
                     transform(49);
+                    newFairyType = 49;
                     break;
                 case 11: //dark blue
                     transform(56);
+                    newFairyType = 56;
                     break;
                 case 12: //brown TODO
                     //transform(50);
                     break;
                 case 13: //green
                     transform(58);
+                    newFairyType = 58;
                     break;
                 case 14: //red
                     transform(55);
+                    newFairyType = 55;
                     break;
                 case 15: //black
                     transform(54);
+                    newFairyType = 54;
                     break;
             }
 
+            if (newFairyType != 0 && player instanceof ServerPlayer serverPlayer) {
+                MoCAdvancements.triggerObtainFairyColor(serverPlayer, newFairyType);
+            }
             if (!player.getAbilities().instabuild) stack.shrink(1);
             eatingHorse();
             return InteractionResult.SUCCESS;
@@ -2261,6 +2296,11 @@ public class MoCEntityHorse extends MoCEntityTameableAnimal {
             // Dedicated Bay Tovero tier-3 horse entity: always force the pinto-like variant (type 11)
             if (this.getType() == MoCEntities.BAY_TOVERO_HORSE.get()) {
                 setTypeMoC(11); // maps to horsepinto.png
+                return;
+            }
+            // Dedicated fairy horse entity: always white fairy (type 50) for spawn egg
+            if (this.getType() == MoCEntities.FAIRY_HORSE.get()) {
+                setTypeMoC(50); // fairy white
                 return;
             }
             if (this.random.nextInt(5) == 0) setAdult(false);

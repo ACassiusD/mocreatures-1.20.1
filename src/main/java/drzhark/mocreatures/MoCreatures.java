@@ -109,6 +109,7 @@ public class MoCreatures {
             CriteriaTriggers.register(MoCAdvancements.OBTAIN_DARK_PEGASUS);
             CriteriaTriggers.register(MoCAdvancements.OBTAIN_GHOST_HORSE);
             CriteriaTriggers.register(MoCAdvancements.OBTAIN_FLYING_GHOST_HORSE);
+            CriteriaTriggers.register(MoCAdvancements.OBTAIN_FAIRY_COLOR);
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_unicorn");
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_bat_horse");
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_nightmare");
@@ -116,6 +117,7 @@ public class MoCreatures {
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_dark_pegasus");
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_ghost_horse");
             LOGGER.debug("Registered advancement trigger: mocreatures:obtain_flying_ghost_horse");
+            LOGGER.debug("Registered advancement trigger: mocreatures:obtain_fairy_color");
         });
         // This is called after registry events - safe to build spawn lists
         event.enqueueWork(() -> {

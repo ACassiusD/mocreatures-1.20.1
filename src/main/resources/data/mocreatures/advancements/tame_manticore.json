@@ -2,7 +2,7 @@
   "parent": "mocreatures:root",
   "display": {
     "icon": {
-      "item": "mocreatures:plainmanticore_spawn_egg"
+      "item": "minecraft:saddle"
     },
     "title": {
       "translate": "advancements.mocreatures.tame_manticore.title"

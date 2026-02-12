@@ -143,6 +143,10 @@ public class MoCSpawnEggs {
     // Bay Tovero tier-3 horse spawn egg (always spawns a Bay Tovero variant)
     public static final RegistryObject<Item> BAY_TOVERO_HORSE_SPAWN_EGG = registerSpawnEgg("baytovero",
             () -> MoCEntities.BAY_TOVERO_HORSE.get(), 0x8B4513, 0xF5F5F5);
+
+    // Fairy horse spawn egg (always spawns white fairy horse, type 50 – for testing and creative)
+    public static final RegistryObject<Item> FAIRY_HORSE_SPAWN_EGG = registerSpawnEgg("fairyhorse",
+            () -> MoCEntities.FAIRY_HORSE.get(), 0xF5F5F5, 0xE8E8E8);
             
     public static final RegistryObject<Item> WYVERN_SPAWN_EGG = registerSpawnEgg("wyvern", 
             () -> MoCEntities.WYVERN.get(), 11440923, 15526339);

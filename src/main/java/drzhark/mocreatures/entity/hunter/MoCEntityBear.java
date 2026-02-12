@@ -21,7 +21,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -356,7 +357,9 @@ public class MoCEntityBear extends MoCEntityTameableAnimal {
                 this.localchest = new MoCAnimalChest("BigBearChest", MoCAnimalChest.Size.small);
             }
             if (!this.level().isClientSide()) {
-                player.openMenu((MenuProvider) this.localchest);
+                player.openMenu(new SimpleMenuProvider(
+                        (id, inventory, p) -> new ChestMenu(net.minecraft.world.inventory.MenuType.GENERIC_9x2, id, inventory, this.localchest, 2),
+                        this.localchest.getName()));
             }
             return InteractionResult.SUCCESS;
         }
